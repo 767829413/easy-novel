@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/767829413/easy-novel/internal/action/model"
+	"github.com/767829413/easy-novel/internal/action/tools"
 	"github.com/chzyer/readline"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
@@ -45,7 +46,8 @@ func (d *download) Execute() error {
 		return nil
 	}
 
-	results := []*model.SearchResult{}
+	crawler := tools.NewNovelCrawler()
+	results := crawler.Search(keyword)
 
 	if len(results) == 0 {
 		return nil
@@ -120,7 +122,7 @@ func (d *download) Execute() error {
 				}
 			}
 
-			res := end - start
+			res := crawler.Crawl(sr, start, end)
 			fmt.Printf("<== 完成！总耗时 %d s\n", res)
 			return nil
 		}
