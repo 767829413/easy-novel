@@ -1,5 +1,7 @@
 # easy-novel
 
+# 当前命令行版本已经不在维护，请到 <https://github.com/767829413/fy-novel> 提供了最新的linux和windows 客户端版本方便使用！！！
+
 ## 介绍
 
 用户欲免费阅新书且求最佳阅读体验者之所需。
